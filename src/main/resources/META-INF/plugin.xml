@@ -8,8 +8,4 @@
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.wl2027.remotedebugplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.wl2027.remotedebugplugin.startup.MyProjectActivity" />
-    </extensions>
 </idea-plugin>
