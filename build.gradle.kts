@@ -33,6 +33,13 @@ repositories {
 dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.opentest4j)
+    
+    // WebSocket client library
+    implementation("org.java-websocket:Java-WebSocket:1.5.4")
+    
+    // Logging
+    implementation("org.slf4j:slf4j-api:2.0.6")
+    implementation("org.slf4j:slf4j-simple:2.0.9")
 
     // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
     intellijPlatform {

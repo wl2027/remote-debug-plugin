@@ -1,11 +1,38 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.wl2027.remotedebugplugin</id>
-    <name>remote-debug-plugin</name>
+    <name>Remote Debug via WebSocket Proxy</name>
     <vendor>wl2027</vendor>
+    
+    <description><![CDATA[
+        <p>Debug Java applications through WebSocket proxy.</p>
+        <p>This plugin adds a new Run/Debug Configuration type that allows you to debug Java applications
+        running in remote environments (such as Kubernetes pods) via a WebSocket proxy.</p>
+        <h3>Features:</h3>
+        <ul>
+            <li>Debug remote Java applications through WebSocket proxy</li>
+            <li>Support for debugging applications in network-isolated environments</li>
+            <li>Similar to native Remote JVM Debug but with WebSocket tunnel</li>
+            <li>Auto-reconnect support</li>
+        </ul>
+        <h3>Usage:</h3>
+        <ol>
+            <li>Start the WebSocket proxy server</li>
+            <li>Create a new "Remote JVM Debug (WebSocket)" configuration</li>
+            <li>Configure the WebSocket server URL and target application details</li>
+            <li>Click Debug to start debugging</li>
+        </ol>
+    ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.java</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
+    
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Register WebSocket Proxy Remote Debug Configuration Type -->
+        <configurationType implementation="com.github.wl2027.remotedebugplugin.execution.WsProxyConfigurationType"/>
+    </extensions>
 
 </idea-plugin>
